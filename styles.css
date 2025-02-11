@@ -1,0 +1,373 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-blue: #1C75B8;
+    --secondary-blue: #006B91;
+    --deep-purple: #472E9E;
+    --dark-blue: #1A2E90;
+    --text-light: #ffffff;
+}
+body {
+    background: linear-gradient(to bottom,#1A2E90, #5A2CAE, #472E9E, #1A2E90);
+    color: var(--text-light);
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-attachment: fixed; /* Ensures the gradient stays in place */
+}
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    padding: 15px;
+}
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    justify-content: center;
+}
+header ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+header ul li a:hover {
+    opacity: 0.7;
+}
+/* Full-Screen Sections */
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+/* Home Section */
+.home {
+    background: transparent; /* Now, it won't block the body's gradient */
+    padding: 0 5%;
+}
+.home .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+.home .left {
+    flex: 1;
+}
+.home .name {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.home .title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+}
+.home .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+}
+.character-image {
+    width: 130%;
+    height: auto;
+    max-height: 130vh;
+    object-fit: cover;
+}
+/* Projects Section */
+.projects {
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    flex: 0 0 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 5%;
+}
+.slide-content {
+    display: flex;
+    flex-direction: row; /* Ensures image on left, text on right */
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px; /* Creates more space between the image and text */
+}
+
+.slide-image {
+    width: 50%;
+    max-height: 80%;
+    object-fit: cover;
+}
+.slide-text {
+    width: 40%;
+    font-size: 1.2rem;
+    padding: 20px;  /* Adds internal spacing */
+    margin: 20px;  /* Adds external spacing */
+    line-height: 1.6;  /* Increases space between lines */
+    text-align: justify; /* Aligns text for a neater look */
+}
+.pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+.pagination .dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.pagination .dot.active {
+    background: white;
+}
+/* Contact Section */
+.contact {
+    background: transparent;
+    flex-direction: column;
+    padding: 60px 20px;
+}
+.contact-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.icon-box {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.icon-box a img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+.icon-box a img:hover {
+    transform: scale(1.3);
+}
+.enquiry-form {
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.enquiry-form input,
+.enquiry-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+}
+.enquiry-form button {
+    width: 100%;
+    padding: 12px;
+    background: var(--secondary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.enquiry-form button:hover {
+    background: var(--deep-purple);
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--text-light);
+}
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .home .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .character-image {
+        width: 70%;
+        height: auto;
+    }
+    .slide {
+        flex-direction: column;
+    }
+    .slide-text {
+        width: 80%;
+        text-align: center;
+    }
+}
+@media (max-width: 1200px) {
+    .slide-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .slide-text {
+        width: 80%;
+        margin: 10px auto;
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 768px) {
+    .home .name {
+        font-size: 2.5rem;
+    }
+    .home .title {
+        font-size: 1.5rem;
+    }
+    .icon-box a img {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width: 480px) {
+    .enquiry-form {
+        max-width: 300px;
+    }
+    
+}
+@media (max-width: 768px) {
+    .projects {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding-bottom: 50px;
+    }
+    .slide {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .slide-image {
+        width: 80%;
+        max-width: 300px;
+    }
+    .slide-text {
+        width: 90%;
+        font-size: 1rem;
+    }
+}
+/* About Me Box */
+.about-me-box {
+    max-width: 500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+.about-me-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+}
+.about-me-box p {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+/* Fix About Me Box Overlapping Footer */
+.contact {
+    min-height: auto;
+    padding-bottom: 80px; /* Adds extra spacing to prevent overlap */
+}
+.social-links h3 {
+    text-align: center;
+    padding-bottom:20px;
+}
+.about-me-box {
+    margin-bottom: 50px; /* Ensures spacing between the box and footer */
+}
+/* Improved Project Slides Design */
+.slide-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* More balanced spacing */
+}
+.slide-image {
+    width: 45%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px; /* Adds rounded edges */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+.slide-text {
+    width: 45%;
+    font-size: 1.2rem;
+    text-align: left; /* Aligns text for a cleaner layout */
+    padding: 20px; /* Internal spacing */
+    margin: 10px; /* External spacing */
+    line-height: 1.8; /* Fixes weird text spacing */
+}
+.slide-text h3 {
+    font-size: 2rem; /* Larger project titles */
+    margin-bottom: 15px; /* Adds slight gap below title */
+    color: var(--primary-blue); /* Highlights the title */
+}
+
+@media (max-width: 1024px) {
+    .home .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .character-image {
+        width: 60%;
+        max-height: 100vh;
+    }
+
+    .slide-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slide-text {
+        width: 80%;
+        margin: 10px auto;
+        font-size: 1.1rem;
+    }
+}
